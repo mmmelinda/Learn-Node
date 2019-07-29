@@ -30,6 +30,7 @@ exports.notFound = (req, res, next) => {
 */
 
 exports.flashValidationErrors = (err, req, res, next) => {
+  //if there are no errors to show for flashes, skip it
   if (!err.errors) return next(err);
   // validation errors look like
   const errorKeys = Object.keys(err.errors);
@@ -39,7 +40,7 @@ exports.flashValidationErrors = (err, req, res, next) => {
 
 
 /*
-  Development Error Handler
+  Development Error Hanlder
 
   In development we show good error messages so if we hit a syntax error or any other previously un-handled error, we can show good info on what happened
 */
